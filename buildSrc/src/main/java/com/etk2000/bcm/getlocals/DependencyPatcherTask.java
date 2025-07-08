@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 
 public abstract class DependencyPatcherTask extends DefaultTask {
-	private static final Pattern CLASSES_PATTERN = Pattern.compile("/build/classes/java/(main|test)$");
+	private static final Pattern CLASSES_PATTERN = Pattern.compile("[/\\\\]build[/\\\\]classes[/\\\\]java[/\\\\](main|test)$");
 	public Task compileTask;
 
 	@TaskAction
