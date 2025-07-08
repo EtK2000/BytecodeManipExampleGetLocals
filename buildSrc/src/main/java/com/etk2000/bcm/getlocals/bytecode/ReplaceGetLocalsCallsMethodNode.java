@@ -42,7 +42,7 @@ public class ReplaceGetLocalsCallsMethodNode extends MethodNode {
 					inject.add(new VarInsnNode(Opcodes.ASTORE, mapIndex));
 
 					// Add all locals into map
-					final int injectionPoint = instructions.indexOf(insn);
+					final int injectionPoint = this.instructions.indexOf(insn);
 					for (LocalVariableNode local : this.localVariables) {
 
 						// Skip `this`
@@ -50,7 +50,7 @@ public class ReplaceGetLocalsCallsMethodNode extends MethodNode {
 							continue;
 
 						// Skip uninitialized variables
-						if (instructions.indexOf(local.start) >= injectionPoint)
+						if (this.instructions.indexOf(local.start) >= injectionPoint)
 							continue;
 
 						// Stack = [ map, local_name, local_value ]
